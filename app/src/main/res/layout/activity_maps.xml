@@ -1,19 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    tools:context=".MapsActivity">
 
-    <fragment xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        tools:context=".MapsActivity"
-        android:layout_alignParentLeft="true" />
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/search_et_id"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:freezesText="true"
+            android:hint="search here"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/search_bt_id"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/search_et_id"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:onClick="pressSearchBt"
+            android:text="Search"
+            android:textSize="20sp"
+            tools:ignore="KeyboardInaccessibleWidget" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/hospital_bt_id"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="searchHospital"
+            android:text="Hospitals" />
 
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/restaurant_bt_id"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="searchRestaurant"
+            android:text="restaurants" />
+
+        <Button
+            android:id="@+id/school_bt_id"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="searchSchool"
+            android:text="schools" />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <fragment xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="650dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            tools:context=".MapsActivity" />
+    </RelativeLayout>
+
+
+</LinearLayout>
